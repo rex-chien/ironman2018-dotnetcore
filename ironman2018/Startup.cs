@@ -41,11 +41,13 @@ namespace ironman2018
             {
                 var path = context.Request.Path;
 
-                var match = Regex.Match(path, $"/({string.Join('|', EnabledCultures)})");
+                var match = Regex.Match(path, $"^/({string.Join('|', EnabledCultures)})/CultureMiddleware");
                 var defaultCulture = "zh-tw";
                 if (match.Success)
                 {
                     defaultCulture = match.Groups[1].Value;
+
+                    context.Request.Path = new PathString("/CultureMiddleware/Index");
                 }
 
                 var culture = new CultureInfo(defaultCulture);
