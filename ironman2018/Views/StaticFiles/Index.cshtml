@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Static Files Example";
+}
+
+<h3>Static Files in <i>webroot</i></h3>
+<pre>&lt;img src="~/images/banner1.svg" alt="banner 1" /&gt;</pre>
+<img src="~/images/banner1.svg" alt="banner 1" />
+
+<h3>Static Files in <i>/AnotherStaticSource</i></h3>
+<pre>&lt;img src="~/AnotherStaticSource/banner3.svg" alt="banner 3" /&gt;</pre>
+<img src="~/AnotherStaticSource/banner3.svg" alt="banner 3" />
+
+<h3>File Result</h3>
+<pre>&lt;img src="@@Url.Action("Banner2", "StaticFiles")" alt="banner 2" /&gt;</pre>
+<img src="@Url.Action("Banner2", "StaticFiles")" alt="banner 2" />
