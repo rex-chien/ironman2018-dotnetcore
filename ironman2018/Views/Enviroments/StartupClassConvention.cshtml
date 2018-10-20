@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Startup Class Environment Convention";
+}
+
+<h2>StartupDevelopment.cs</h2>
+<pre>
+public class StartupDevelopment
+{
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app)
+    {
+        app.UseMvc(routes =>
+        {
+            routes.MapRoute(
+                name: "default",
+                template: "{controller=Enviroments}/{action=StartupClassConvention}/{id?}");
+        });
+    }
+}
+</pre>
