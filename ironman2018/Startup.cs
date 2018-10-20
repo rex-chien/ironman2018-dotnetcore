@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ironman2018.Middlewares;
 using ironman2018.Models.DependecyInjection;
+using ironman2018.Models.Environments;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -42,6 +43,22 @@ namespace ironman2018
             services.AddSingleton<IOperationSingletonInstance>(new Operation(Guid.Empty));
 
             services.AddTransient<OperationService, OperationService>();
+
+            if (_env.IsDevelopment())
+            {
+                services.AddSingleton<IEnvironmentsService, DevelopmentEnvironmentsService>();
+            }
+
+            if (_env.IsProduction())
+            {
+                services.AddSingleton<IEnvironmentsService, ProductionEnvironmentsService>();
+            }
+
+            // 會忽略大小寫
+            if (_env.IsEnvironment("rEx"))
+            {
+                services.AddSingleton<IEnvironmentsService, RexEnvironmentsService>();
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

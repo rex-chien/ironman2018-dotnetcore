@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Environments Example";
+}
+
+<h2>Environments Example</h2>
+
+<hr/>
+
+<h3>Injection in ConfigureServices</h3>
+<p>Runtime Environment Name: @ViewBag.EnvironmentName</p>
+
+<hr/>
+
+<h3>Tag Helper</h3>
+<environment include="Development">
+    Dev<br/>
+</environment>
+<environment include="Production">
+    Prod<br />
+</environment>
+<environment exclude="Rex">
+    Not from Rex<br />
+</environment>
