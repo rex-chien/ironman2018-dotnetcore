@@ -82,5 +82,15 @@ namespace ironman2018
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
+        public void ConfigureProduction(IApplicationBuilder app)
+        {
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Enviroments}/{action=StartupConfigureMethodConvention}/{id?}");
+            });
+        }
     }
 }

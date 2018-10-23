@@ -27,5 +27,10 @@ namespace ironman2018.Controllers
         {
             return View();
         }
+
+        public IActionResult StartupConfigureMethodConvention()
+        {
+            return View();
+        }
     }
 }

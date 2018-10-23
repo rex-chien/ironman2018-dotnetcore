@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Startup Configure Metnod Environment Convention";
+}
+
+<h2>Startup.ConfigureProduction</h2>
+<pre>
+public void ConfigureProduction(IApplicationBuilder app)
+{
+    app.UseMvc(routes =>
+    {
+        routes.MapRoute(
+            name: "default",
+            template: "{controller=Enviroments}/{action=StartupConfigureMethodConvention}/{id?}");
+    });
+}
+</pre>
