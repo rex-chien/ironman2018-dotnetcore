@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="StartupDevelopment.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="AnotherStaticSource\banner3.svg" />
     <None Remove="FileResults\banner2.svg" />
   </ItemGroup>
